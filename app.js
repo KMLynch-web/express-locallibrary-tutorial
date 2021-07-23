@@ -18,8 +18,16 @@ var catalogRouter = require('./routes/catalog');  //Import routes for "catalog" 
 var app = express();
 
 //Set up mongoose connection 
+
+
+
+var dev_db_url = 'mongodb+srv://libraryAdmin:libraryAdmin@cluster0.xwamb.mongodb.net/local_library?retryWrites=true'
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
+
 var mongoose = require('mongoose');
-var mongoDB = 'mongodb+srv://libraryAdmin:libraryAdmin@cluster0.xwamb.mongodb.net/local_library?retryWrites=true'
+
+
+// var mongoDB = 'mongodb+srv://libraryAdmin:libraryAdmin@cluster0.xwamb.mongodb.net/local_library?retryWrites=true'
 //var mongoDB = 'mongodb+srv://libraryAdmin:libraryAdmin@cluster0.xwamb.mongodb.net/local_library?retryWrites=true';
 mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
 var db = mongoose.connection;
